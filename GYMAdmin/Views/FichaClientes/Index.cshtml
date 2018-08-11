@@ -1,0 +1,72 @@
+﻿@model IEnumerable<GYMAdmin.Models.FichaCliente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="page-wrapper">
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente.Nombre_Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Membrecia.Nombre_Membrecia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Pago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vencimiento_Pago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Ingreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enfermedades)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_Asistencia_Medica)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.Nombre_Cliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Membrecia.Nombre_Membrecia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Pago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vencimiento_Pago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Ingreso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enfermedades)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo_Asistencia_Medica)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Codigo }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Codigo }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Codigo })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

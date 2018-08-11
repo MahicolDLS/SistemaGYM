@@ -21,7 +21,7 @@ namespace GYMAdmin.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("BD-SistemaGYM", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,13 @@ namespace GYMAdmin.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Membrecia> Membrecias { get; set; }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Cliente> Clientes { get; set; }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.FichaCliente> FichaClientes { get; set; }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Usuario> Usuarios { get; set; }
     }
 }

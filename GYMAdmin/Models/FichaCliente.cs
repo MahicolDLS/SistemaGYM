@@ -33,27 +33,27 @@ namespace GYMAdmin.Models
 
         [Required(ErrorMessage = "* Debe ingresar un Telefono {0,1}")]
         [StringLength(150, MinimumLength = 3)]
-        public int Enfermedades { get; set; }
+        public string Enfermedades { get; set; }
 
         [Required(ErrorMessage = "* Debe ingresar una Asistencia {0,1}")]
         [StringLength(80, MinimumLength = 3)]
         [Column(name: "AsistenciaMedica")]
+        [Display (Name ="Tipo de Asistencia")]
         public string Tipo_Asistencia_Medica { get; set; }
 
-        [Display(Name = "Codigo Cliente")]
+        [Display(Name = "Cliente")]
         [ForeignKey("Cliente")]
         [Column(name: "CodigoCliente")]
-        public int Codigo_Cliente { get; set; }
+        public virtual int Codigo_Cliente { get; set; }
 
         public virtual Cliente Cliente { get; set; }
 
         [ForeignKey("Membrecia")]
-        [Display(Name = "Codigo Membrecia")]
+        [Display(Name = "Membrecia")]
         [Column(name: "CodigoMembrecia")]
-        public int Codigo_Membrecia { get; set; }
+        public virtual int Codigo_Membrecia { get; set; }
 
 
-        public Membrecia Membrecia { get; set; }
+        public virtual Membrecia Membrecia { get; set; }
     }
-}
 }

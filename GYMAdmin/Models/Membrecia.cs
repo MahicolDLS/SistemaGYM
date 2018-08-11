@@ -17,7 +17,8 @@ namespace GYMAdmin.Models
 
         [Required(ErrorMessage = "* Debe de ingresar un Nombre {0,1}")]
         [StringLength(80, MinimumLength = 3)]
-        public string Nombre { get; set; }
+        [Display (Name ="Nombre Membrecia")]
+        public string Nombre_Membrecia { get; set; }
 
         [Required(ErrorMessage = "* Debe de ingresar el COSTO de la membresia {0,1}")]
         public int Costo { get; set; }

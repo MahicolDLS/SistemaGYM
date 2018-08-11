@@ -1,0 +1,76 @@
+﻿@model GYMAdmin.Models.FichaCliente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="page-wrapper">
+    <h2>Details</h2>
+
+    <div>
+        <h4>FichaCliente</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Cliente.Nombre_Cliente)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cliente.Nombre_Cliente)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Membrecia.Nombre_Membrecia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Membrecia.Nombre_Membrecia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fecha_Pago)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fecha_Pago)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Vencimiento_Pago)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Vencimiento_Pago)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fecha_Ingreso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fecha_Ingreso)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Enfermedades)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Enfermedades)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipo_Asistencia_Medica)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tipo_Asistencia_Medica)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Codigo }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

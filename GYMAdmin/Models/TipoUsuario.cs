@@ -5,8 +5,9 @@ using System.Web;
 
 namespace GYMAdmin.Models
 {
-    public class GestoraMembrecia
+    public enum TipoUsuario
     {
-
+        Administrador,
+        Funcionario
     }
 }

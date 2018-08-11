@@ -15,15 +15,20 @@ namespace GYMAdmin.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Codigo { get; set; }
         [Required(ErrorMessage = "* Debe ingresar el Nombre {0,1}")]
-        public string Nombre { get; set; }
+        [Display(Name = "Nombre Cliente")]
+        public string Nombre_Cliente { get; set; }
         [Required(ErrorMessage = "* Debe ingresar el Apellido {0,1}")]
         public string Apellido { get; set; }
         [Required(ErrorMessage = "* Debe ingresar una Direccion {0,1}")]
         public string Direccion { get; set; }
-        [Required(ErrorMessage = "* Debe ingresar un Telefono {0,1}")]
-        public int Telefono { get; set; }
 
-        public int Correo { get; set; }
+        [Required(ErrorMessage = "* Debe ingresar un Telefono {0,1}")]
+        [StringLength(20,MinimumLength = 3)]
+        public string Telefono { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "* Debe ingresar un correo valido {0,1}")]
+        public string Correo { get; set; }
 
 
 
