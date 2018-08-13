@@ -37,5 +37,11 @@ namespace GYMAdmin.Models
         public System.Data.Entity.DbSet<GYMAdmin.Models.FichaCliente> FichaClientes { get; set; }
 
         public System.Data.Entity.DbSet<GYMAdmin.Models.Usuario> Usuarios { get; set; }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Maquina> Maquinas { get; set; }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Mantenimiento> Mantenimientoes { get; set; }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Recargo> Recargoes { get; set; }
     }
 }

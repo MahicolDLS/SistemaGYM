@@ -1,0 +1,56 @@
+﻿@model IEnumerable<GYMAdmin.Models.Mantenimiento>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="page-wrapper">
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Maquina.Nombre_Maquina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.Nombre_Usuario)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Costo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Mantenimiento)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Maquina.Nombre_Maquina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Nombre_Usuario)
+                </td>
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.Costo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Mantenimiento)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Codigo_Mantenimiento }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Codigo_Mantenimiento }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Codigo_Mantenimiento })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

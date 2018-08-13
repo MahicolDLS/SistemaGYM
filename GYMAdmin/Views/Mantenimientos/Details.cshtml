@@ -1,0 +1,60 @@
+﻿@model GYMAdmin.Models.Mantenimiento
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="page-wrapper">
+    <h2>Details</h2>
+
+    <div>
+        <h4>Mantenimiento</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Maquina.Nombre_Maquina)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Maquina.Nombre_Maquina)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Usuario.Nombre_Usuario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Usuario.Nombre_Usuario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Costo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Costo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fecha_Mantenimiento)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fecha_Mantenimiento)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Codigo_Mantenimiento }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

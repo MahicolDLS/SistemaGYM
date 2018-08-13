@@ -1,0 +1,36 @@
+﻿@model GYMAdmin.Models.Maquina
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="page-wrapper">
+    <h2>Details</h2>
+
+    <div>
+        <h4>Maquina</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre_Maquina)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre_Maquina)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cantidad)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Codigo_Maquina }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
