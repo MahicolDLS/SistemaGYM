@@ -7,7 +7,6 @@
 <div id="page-wrapper">
     <h2>Edit</h2>
 
-
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -43,6 +42,14 @@
             </div>
 
             <div class="form-group">
+                @Html.LabelFor(model => model.Codigo_Cliente, "Codigo_Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Codigo_Cliente", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Codigo_Cliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.Enfermedades, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Enfermedades, new { htmlAttributes = new { @class = "form-control" } })
@@ -51,18 +58,26 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Tipo_Asistencia_Medica, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Tipo_Asistencia, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Tipo_Asistencia_Medica, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Tipo_Asistencia_Medica, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Tipo_Asistencia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tipo_Asistencia, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Codigo_Cliente, "Codigo_Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Objetivos, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("Codigo_Cliente", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Codigo_Cliente, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Objetivos, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Objetivos, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Codigo_Alimentacion, "Codigo_Alimentacion", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Codigo_Alimentacion", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Codigo_Alimentacion, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -85,8 +100,4 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
 </div>

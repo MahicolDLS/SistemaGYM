@@ -40,8 +40,14 @@ namespace GYMAdmin.Models
 
         public System.Data.Entity.DbSet<GYMAdmin.Models.Maquina> Maquinas { get; set; }
 
-        public System.Data.Entity.DbSet<GYMAdmin.Models.Mantenimiento> Mantenimientoes { get; set; }
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Mantenimiento> Mantenimientos { get; set; }
 
-        public System.Data.Entity.DbSet<GYMAdmin.Models.Recargo> Recargoes { get; set; }
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Recargo> Recargos { get; set; }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Alimentacion> Alimentaciones { get; set; }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Proveedor> Proveedores { get; set; }
+
+        public System.Data.Entity.DbSet<GYMAdmin.Models.Articulo> Articulos { get; set; }
     }
 }

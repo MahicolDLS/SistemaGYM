@@ -1,0 +1,66 @@
+﻿@model IEnumerable<GYMAdmin.Models.Proveedor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="page-wrapper">
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre_Empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre_Proveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre_Empresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre_Proveedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Codigo_Proveedor }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Codigo_Proveedor }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Codigo_Proveedor })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

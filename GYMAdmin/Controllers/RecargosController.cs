@@ -17,7 +17,7 @@ namespace GYMAdmin.Controllers
         // GET: Recargos
         public ActionResult Index()
         {
-            return View(db.Recargoes.ToList());
+            return View(db.Recargos.ToList());
         }
 
         // GET: Recargos/Details/5
@@ -27,7 +27,7 @@ namespace GYMAdmin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Recargo recargo = db.Recargoes.Find(id);
+            Recargo recargo = db.Recargos.Find(id);
             if (recargo == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace GYMAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Recargoes.Add(recargo);
+                db.Recargos.Add(recargo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace GYMAdmin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Recargo recargo = db.Recargoes.Find(id);
+            Recargo recargo = db.Recargos.Find(id);
             if (recargo == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace GYMAdmin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Recargo recargo = db.Recargoes.Find(id);
+            Recargo recargo = db.Recargos.Find(id);
             if (recargo == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace GYMAdmin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Recargo recargo = db.Recargoes.Find(id);
-            db.Recargoes.Remove(recargo);
+            Recargo recargo = db.Recargos.Find(id);
+            db.Recargos.Remove(recargo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

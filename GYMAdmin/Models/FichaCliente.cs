@@ -7,52 +7,54 @@ using System.Web;
 
 namespace GYMAdmin.Models
 {
-    [Table("FichaClientes")]
+    [Table(name:"FichaClientes")]
     public class FichaCliente
     {
-
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+       [Key][Column(name:"Cod.FichaCliente")][DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Codigo { get; set; }
 
-        [Display(Name = "Fecha de Pago")]
-        [Required(ErrorMessage = "* Debe ingresar el Nombre {0,1}")]
+        [Display(Name = "Fecha Pago")]
+        [Required(ErrorMessage =" * Debe ingresar Fecha de Pago")]
         [Column(name: "FechaPago")]
         public DateTime Fecha_Pago { get; set; }
 
-        [Required(ErrorMessage = "* Debe ingresar el Apellido {0,1}")]
-        [Display(Name = "Vencimiento de Pago")]
-        [Column(name: "VencimientoPago")]
-        public string Vencimiento_Pago { get; set; }
+        [Display(Name = "Vencimiento Pago")]
+        [Required(ErrorMessage = " * Debe ingresar Fecha de Vencimiento")][Column(name:"VencimientoPago")]
+        public DateTime Vencimiento_Pago { get; set; }
 
-        [Required(ErrorMessage = "* Debe ingresar una Direccion {0,1}")]
-        [Display(Name = "Fecha de Ingreso")]
+        [Display(Name = "Fecha Ingreso")]
+        [Required(ErrorMessage = " * Debe ingresar la Fecha de Ingreso")]
         [Column(name: "FechaIngreso")]
         public DateTime Fecha_Ingreso { get; set; }
 
-        [Required(ErrorMessage = "* Debe ingresar un Telefono {0,1}")]
-        [StringLength(150, MinimumLength = 3)]
-        public string Enfermedades { get; set; }
-
-        [Required(ErrorMessage = "* Debe ingresar una Asistencia {0,1}")]
-        [StringLength(80, MinimumLength = 3)]
-        [Column(name: "AsistenciaMedica")]
-        [Display (Name ="Tipo de Asistencia")]
-        public string Tipo_Asistencia_Medica { get; set; }
-
-        [Display(Name = "Cliente")]
-        [ForeignKey("Cliente")]
-        [Column(name: "CodigoCliente")]
-        public virtual int Codigo_Cliente { get; set; }
+        [ForeignKey("Cliente")][Column(name:"Cod.Cliente")][Display(Name ="Cod. Cliente")]
+        public int Codigo_Cliente { get; set; }
 
         public virtual Cliente Cliente { get; set; }
 
-        [ForeignKey("Membrecia")]
-        [Display(Name = "Membrecia")]
-        [Column(name: "CodigoMembrecia")]
-        public virtual int Codigo_Membrecia { get; set; }
 
+        public string Enfermedades { get; set; }
+
+        [Display(Name = "Tipo Asistencia")]
+        [Column(name: "TipoAsistencia")]
+        [Required(ErrorMessage = " * Debe ingresar tipo de Asistencia ")]
+        public string Tipo_Asistencia { get; set; }
+
+        public string Objetivos { get; set; }
+
+        [Display(Name = "Cod. Alimentacion")][ForeignKey("Alimentacion")]
+        [Column(name: "Cod.Alimentacion")]
+        [Required(ErrorMessage = " * Debe seleccionar alimentacion ")]
+        public int Codigo_Alimentacion { get; set; }
+
+        public virtual Alimentacion Alimentacion { get; set; }
+
+
+        [Display(Name = "Cod. Membrecia")]
+        [Column(name: "Cod.Membrecia")]
+        [ForeignKey("Membrecia")]
+        [Required(ErrorMessage = " * Debe seleccionar una Memebrecia ")]
+        public int Codigo_Membrecia { get; set; }
 
         public virtual Membrecia Membrecia { get; set; }
     }

@@ -17,7 +17,7 @@ namespace GYMAdmin.Controllers
         // GET: Mantenimientos
         public ActionResult Index()
         {
-            var mantenimientoes = db.Mantenimientoes.Include(m => m.Maquina).Include(m => m.Usuario);
+            var mantenimientoes = db.Mantenimientos.Include(m => m.Maquina).Include(m => m.Usuario);
             return View(mantenimientoes.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace GYMAdmin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mantenimiento mantenimiento = db.Mantenimientoes.Find(id);
+            Mantenimiento mantenimiento = db.Mantenimientos.Find(id);
             if (mantenimiento == null)
             {
                 return HttpNotFound();
@@ -53,7 +53,7 @@ namespace GYMAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Mantenimientoes.Add(mantenimiento);
+                db.Mantenimientos.Add(mantenimiento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -70,7 +70,7 @@ namespace GYMAdmin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mantenimiento mantenimiento = db.Mantenimientoes.Find(id);
+            Mantenimiento mantenimiento = db.Mantenimientos.Find(id);
             if (mantenimiento == null)
             {
                 return HttpNotFound();
@@ -105,7 +105,7 @@ namespace GYMAdmin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mantenimiento mantenimiento = db.Mantenimientoes.Find(id);
+            Mantenimiento mantenimiento = db.Mantenimientos.Find(id);
             if (mantenimiento == null)
             {
                 return HttpNotFound();
@@ -118,8 +118,8 @@ namespace GYMAdmin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Mantenimiento mantenimiento = db.Mantenimientoes.Find(id);
-            db.Mantenimientoes.Remove(mantenimiento);
+            Mantenimiento mantenimiento = db.Mantenimientos.Find(id);
+            db.Mantenimientos.Remove(mantenimiento);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -17,7 +17,7 @@ namespace GYMAdmin.Controllers
         // GET: FichaClientes
         public ActionResult Index()
         {
-            var fichaClientes = db.FichaClientes.Include(f => f.Cliente).Include(f => f.Membrecia);
+            var fichaClientes = db.FichaClientes.Include(f => f.Alimentacion).Include(f => f.Cliente).Include(f => f.Membrecia);
             return View(fichaClientes.ToList());
         }
 
@@ -39,6 +39,7 @@ namespace GYMAdmin.Controllers
         // GET: FichaClientes/Create
         public ActionResult Create()
         {
+            ViewBag.Codigo_Alimentacion = new SelectList(db.Alimentaciones, "Codigo_Alimentacion", "Nombre");
             ViewBag.Codigo_Cliente = new SelectList(db.Clientes, "Codigo", "Nombre_Cliente");
             ViewBag.Codigo_Membrecia = new SelectList(db.Membrecias, "Codigo", "Nombre_Membrecia");
             return View();
@@ -49,7 +50,7 @@ namespace GYMAdmin.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Codigo,Fecha_Pago,Vencimiento_Pago,Fecha_Ingreso,Enfermedades,Tipo_Asistencia_Medica,Codigo_Cliente,Codigo_Membrecia")] FichaCliente fichaCliente)
+        public ActionResult Create([Bind(Include = "Codigo,Fecha_Pago,Vencimiento_Pago,Fecha_Ingreso,Codigo_Cliente,Enfermedades,Tipo_Asistencia,Objetivos,Codigo_Alimentacion,Codigo_Membrecia")] FichaCliente fichaCliente)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +59,7 @@ namespace GYMAdmin.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Codigo_Alimentacion = new SelectList(db.Alimentaciones, "Codigo_Alimentacion", "Nombre", fichaCliente.Codigo_Alimentacion);
             ViewBag.Codigo_Cliente = new SelectList(db.Clientes, "Codigo", "Nombre_Cliente", fichaCliente.Codigo_Cliente);
             ViewBag.Codigo_Membrecia = new SelectList(db.Membrecias, "Codigo", "Nombre_Membrecia", fichaCliente.Codigo_Membrecia);
             return View(fichaCliente);
@@ -75,6 +77,7 @@ namespace GYMAdmin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Codigo_Alimentacion = new SelectList(db.Alimentaciones, "Codigo_Alimentacion", "Nombre", fichaCliente.Codigo_Alimentacion);
             ViewBag.Codigo_Cliente = new SelectList(db.Clientes, "Codigo", "Nombre_Cliente", fichaCliente.Codigo_Cliente);
             ViewBag.Codigo_Membrecia = new SelectList(db.Membrecias, "Codigo", "Nombre_Membrecia", fichaCliente.Codigo_Membrecia);
             return View(fichaCliente);
@@ -85,7 +88,7 @@ namespace GYMAdmin.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Codigo,Fecha_Pago,Vencimiento_Pago,Fecha_Ingreso,Enfermedades,Tipo_Asistencia_Medica,Codigo_Cliente,Codigo_Membrecia")] FichaCliente fichaCliente)
+        public ActionResult Edit([Bind(Include = "Codigo,Fecha_Pago,Vencimiento_Pago,Fecha_Ingreso,Codigo_Cliente,Enfermedades,Tipo_Asistencia,Objetivos,Codigo_Alimentacion,Codigo_Membrecia")] FichaCliente fichaCliente)
         {
             if (ModelState.IsValid)
             {
@@ -93,6 +96,7 @@ namespace GYMAdmin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Codigo_Alimentacion = new SelectList(db.Alimentaciones, "Codigo_Alimentacion", "Nombre", fichaCliente.Codigo_Alimentacion);
             ViewBag.Codigo_Cliente = new SelectList(db.Clientes, "Codigo", "Nombre_Cliente", fichaCliente.Codigo_Cliente);
             ViewBag.Codigo_Membrecia = new SelectList(db.Membrecias, "Codigo", "Nombre_Membrecia", fichaCliente.Codigo_Membrecia);
             return View(fichaCliente);

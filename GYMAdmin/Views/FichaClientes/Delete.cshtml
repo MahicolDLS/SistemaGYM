@@ -13,6 +13,14 @@
         <hr />
         <dl class="dl-horizontal">
             <dt>
+                @Html.DisplayNameFor(model => model.Alimentacion.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Alimentacion.Nombre)
+            </dd>
+
+            <dt>
                 @Html.DisplayNameFor(model => model.Cliente.Nombre_Cliente)
             </dt>
 
@@ -61,11 +69,19 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Tipo_Asistencia_Medica)
+                @Html.DisplayNameFor(model => model.Tipo_Asistencia)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Tipo_Asistencia_Medica)
+                @Html.DisplayFor(model => model.Tipo_Asistencia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Objetivos)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Objetivos)
             </dd>
 
         </dl>
